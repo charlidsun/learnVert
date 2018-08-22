@@ -1,0 +1,30 @@
+<view class="viewport">
+  <view class='claBox clear'>
+    <view class='left' wx:key="id" wx:for="{{claBox}}" wx:for-item="item" wx:for-index="inx">
+      <text data-id="{{inx}}" bindtap='cutTab' class='{{item.state}}'>{{item.name}}</text>
+    </view>
+  </view>
+  <view class='noDiscount' wx:if="{{false}}"><image src='{{imgUrl}}/personalCenter/discount/nodiscount.png'/></view>
+  <view class='discountList'>
+    <block wx:key="id" wx:for="{{presentCla}}" wx:for-item="item">
+      <view class='discount {{isGray}}'>
+        <image wx:if="{{isGray==''}}" src='{{imgUrl}}/personalCenter/discount/discountImg.png'/>
+        <image wx:if="{{isGray=='gray'}}" src='{{imgUrl}}/personalCenter/discount/ndiscountImg.png'/>
+        <view class='money'>
+          <view class='price'>¥{{item.price}}</view>
+          <view class='threshold'>{{item.threshold}}</view>
+        </view>
+        <view class='content'>
+          <view class='name'>{{item.name}}</view>
+          <view class='user'>{{item.user}}</view>
+          <view class='period'>{{item.period}}</view>
+        </view>
+        <view class='employ'>
+          <text wx:if="{{iconShow==0}}">去使用</text>
+          <image wx:if="{{iconShow==1}}" src='{{imgUrl}}/personalCenter/discount/have.png'/>
+          <image wx:if="{{iconShow==2}}" src='{{imgUrl}}/personalCenter/discount/expired.png'/>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
